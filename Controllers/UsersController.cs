@@ -78,6 +78,12 @@ namespace MiAppUsuarios.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            if (user.Age < 18)
+            {
+                return BadRequest(new { message = "El usuario debe ser mayor de edad para registrarse." });
+                throw new ArgumentException("El usuario debe ser mayor de edad.");
+            }
+            
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
