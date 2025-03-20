@@ -1,11 +1,14 @@
-﻿using MiAppUsuarios.DataContext;
-using MiAppUsuarios.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MiAppUsuarios.DataContext;
+using MiAppUsuarios.Models;
+
 namespace MiAppUsuarios.Repositories
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
-
         private readonly MiApiUsuariosDbContext _context;
 
         public UserRepository(MiApiUsuariosDbContext context)
@@ -57,3 +60,4 @@ namespace MiAppUsuarios.Repositories
         }
     }
 }
+
